@@ -31,9 +31,11 @@ clients/
   _template/client.md     blank client file
   example-co/client.md    a made up example to learn from
 .claude/commands/
+  find-skills.md          type /find-skills to search GitHub for extra skills
   handoff.md              type /handoff at the end of every session
 .claude/skills/
   connect-github/         install Git, sign in, save your work
+  find-skills/            search GitHub for public skills and add one
   new-client/             interview you and write client.md
   connect-clay/           install and sign in to the Clay CLI
   list-builder/           company and people lists (Clay or free web)
@@ -48,12 +50,13 @@ outputs/                  scratch space
 ## The flow
 
 1. **connect-github**: Git works and the HQ is on your computer.
-2. **new-client**: Claude interviews you and writes `clients/<you>/client.md`.
-3. **list-builder**: 10 to 20 companies and up to 2 people each, saved as CSVs.
-4. **new-campaign**: a short brief with the angle and a 3 email sequence.
-5. **copywriter**: the emails, under 80 words each.
-6. **/handoff**: write `HANDOFF.md` so the next session can pick up.
-7. Save to GitHub. Optional: load the lists into Supabase.
+2. **/find-skills** (optional): search GitHub for extra public skills and add one you trust.
+3. **new-client**: Claude interviews you and writes `clients/<you>/client.md`.
+4. **list-builder**: 10 to 20 companies and up to 2 people each, saved as CSVs.
+5. **new-campaign**: a short brief with the angle and a 3 email sequence.
+6. **copywriter**: the emails, under 80 words each.
+7. **/handoff**: write `HANDOFF.md` so the next session can pick up.
+8. Save to GitHub. Optional: load the lists into Supabase.
 
 ## Your homework
 

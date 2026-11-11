@@ -38,6 +38,7 @@ Always save outputs inside the client folder. Never overwrite a file without ask
 | Skill | Use it to |
 |---|---|
 | connect-github | install Git, sign in to GitHub, save work to GitHub |
+| find-skills | search GitHub for public Claude Code skills and add one (optional) |
 | new-client | interview the student and write `client.md` |
 | connect-clay | install and sign in to the Clay CLI (optional) |
 | list-builder | build a company list and a people list |
@@ -46,7 +47,7 @@ Always save outputs inside the client folder. Never overwrite a file without ask
 | connect-supabase | save lists into a free Supabase database (optional) |
 | handoff | write a session handoff so the next session can pick up |
 
-Usual order: connect-github, new-client, list-builder, new-campaign, copywriter, then `/handoff`. Use the matching skill whenever the student's request fits one.
+Usual order: connect-github, then optionally find-skills, then new-client, list-builder, new-campaign, copywriter, then `/handoff`. Use the matching skill whenever the student's request fits one.
 
 ## Hard rules
 
