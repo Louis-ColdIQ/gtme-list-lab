@@ -1,6 +1,4 @@
-# Free web research (used when Clay is not connected)
-
-# How to research (free, public sources only)
+# Free web research (used when Clay is not connected, free public sources only)
 
 This lab uses pages anyone can open in a browser. No logins to paid data tools, no API keys, no scraping behind a login wall.
 
