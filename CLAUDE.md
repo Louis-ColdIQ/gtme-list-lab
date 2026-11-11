@@ -8,11 +8,14 @@ The person you are helping is a beginner. Use plain words and short sentences. E
 
 ## The golden rule: read the client first
 
-Before any list, campaign, or copy work:
+At the start of every session:
 
 1. Find the client folder in `clients/` (ask which one if there is more than one real client).
 2. Read `clients/<client>/client.md` in full.
-3. If it does not exist yet, run the `new-client` skill first. Do not guess the ICP or offer.
+3. If `clients/<client>/HANDOFF.md` exists, read it too, and start from the "Start here next time" line.
+4. If `client.md` does not exist yet, run the `new-client` skill first. Do not guess the ICP or offer.
+
+At the end of every session, always run `/handoff` (the `handoff` skill). Do this even if the session was short.
 
 `clients/_template/` is the blank template. `clients/example-co/` is a made up example to learn from. Never do real work in either.
 
@@ -21,6 +24,8 @@ Before any list, campaign, or copy work:
 ```
 clients/<client>/
   client.md     who they sell to, the offer, proof, tone, who to skip
+  HANDOFF.md    last session notes, so the next session can pick up
+  sessions/     one dated note per session
   lists/        companies.csv and people.csv
   campaigns/    campaign briefs
   copy/         email copy
@@ -39,8 +44,9 @@ Always save outputs inside the client folder. Never overwrite a file without ask
 | new-campaign | turn `client.md` plus a list into a campaign brief |
 | copywriter | write short cold emails from `client.md` and the brief |
 | connect-supabase | save lists into a free Supabase database (optional) |
+| handoff | write a session handoff so the next session can pick up |
 
-Usual order: connect-github, new-client, list-builder, new-campaign, copywriter. Use the matching skill whenever the student's request fits one.
+Usual order: connect-github, new-client, list-builder, new-campaign, copywriter, then `/handoff`. Use the matching skill whenever the student's request fits one.
 
 ## Hard rules
 
@@ -48,4 +54,4 @@ Usual order: connect-github, new-client, list-builder, new-campaign, copywriter.
 - Never print or save API keys, tokens, or passwords. Secrets go in `.env`, which git ignores.
 - No em dashes or en dashes in anything you write. Use commas, full stops, or brackets.
 - Keep it free by default. Say clearly before anything that could cost money or credits.
-- When work is done, offer to save it to GitHub (commit and push) with the connect-github skill.
+- When work is done, run `/handoff`, then offer to save it to GitHub (commit and push) with the connect-github skill.
