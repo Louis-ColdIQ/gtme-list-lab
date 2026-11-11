@@ -1,6 +1,6 @@
 # GTME Client HQ (starter)
 
-A starter "client HQ" for doing outbound with Claude Code. The idea is simple: **context in, good work out.** You write down who your client is once (`client.md`), and every skill reads it before building a list, a campaign, or an email. At the end of every session you run `/handoff`, so the next session can pick up where you left off.
+A starter "client HQ" for doing outbound with Claude Code. The idea is simple: **context in, good work out.** You write down who your client is once (`client.md`), and every skill reads it before building a list, a campaign, or an email. Start every session with `/client` to load your client and its context, and end it with `/handoff`, so the next session can pick up where you left off.
 
 - **Claude Code** does the work, using the skills in `.claude/skills/`.
 - **GitHub** saves your HQ (context, lists, copy) so nothing gets lost.
@@ -34,6 +34,7 @@ clients/
   _template/client.md     blank client file
   example-co/client.md    a made up example to learn from
 .claude/commands/
+  client.md               type /client at the start of every session to load a client
   find-skills.md          type /find-skills to search GitHub for extra skills
   offer.md                type /offer to tighten the offer in client.md
   report.md               type /report to write a simple campaign report
@@ -66,6 +67,8 @@ outputs/                  scratch space
 8. **/handoff**: write `HANDOFF.md` so the next session can pick up.
 9. Save to GitHub. Optional: load the lists into Supabase.
 10. Later, **/report**: paste or export campaign numbers for a simple report.
+
+Coming back for another session? Type **/client** first. It loads `client.md`, your last `HANDOFF.md` and your files, gives you a short brief, and asks where to pick up.
 
 ## Your homework
 

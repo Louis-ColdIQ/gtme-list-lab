@@ -8,7 +8,7 @@ The person you are helping is a beginner. Use plain words and short sentences. E
 
 ## The golden rule: read the client first
 
-At the start of every session:
+At the start of every session, run `/client` (it does the steps below and gives a short brief). If the student did not run it, do it for them:
 
 1. Find the client folder in `clients/` (ask which one if there is more than one real client).
 2. Read `clients/<client>/client.md` in full.
@@ -51,6 +51,8 @@ Always save outputs inside the client folder. Never overwrite a file without ask
 | campaign-report | write a simple report from a CSV or pasted campaign numbers |
 | connect-supabase | save lists into a free Supabase database (optional) |
 | handoff | write a session handoff so the next session can pick up |
+
+Every session starts with `/client` and ends with `/handoff`.
 
 Usual order: connect-github, then optionally find-skills, then new-client, offer-builder, list-builder, new-campaign, copywriter, then `/handoff`. Use `/report` later, once they have numbers from a sending tool. Use the matching skill whenever the student's request fits one.
 
