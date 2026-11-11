@@ -15,9 +15,17 @@ This client is fictional. It shows what a good `client.md` looks like. Do not us
 - Job titles to reach: Owner, Founder, Operations Manager, General Manager
 
 ## Offer
+Run the offer-builder skill after new-client to tighten this.
 - The main problem they solve: rotas are built in spreadsheets and group chats, so shifts get missed and owners lose hours every week.
-- The result a customer gets: rota done in 15 minutes a week and fewer no shows.
-- The offer for cold outreach: a free 30 day trial, set up for them in one call.
+- Dream outcome: the owner stops rebuilding the week's rota from scratch.
+- Specific result and timeframe: rota done in 15 minutes a week, starting in the first week.
+- Risk reversal or guarantee: a free 30 day trial, set up for them.
+- What the buyer has to do (keep this small): say yes, then join one short setup call.
+- The offer for cold outreach: a free 30 day trial of ShiftPal, set up for you in one call, so the rota takes 15 minutes a week.
+- Offer variants:
+  1. I'll set up a free 30 day ShiftPal trial for your shop, so the rota is done in 15 minutes a week.
+  2. Other independent shops use ShiftPal to cut rota time to 15 minutes a week. Want me to set up a free 30 day trial?
+  3. Free 30 day trial, I set it up. Want it?
 
 ## Proof
 - Customers: "Bean There" (3 sites, Leeds), "Morning Ritual" (1 site, Dublin). Both made up.

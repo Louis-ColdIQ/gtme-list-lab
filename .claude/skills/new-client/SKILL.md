@@ -26,5 +26,5 @@ description: >
 4. If they gave a website, offer to read it (free web fetch) and draft the Basics and Offer sections. Show the draft and ask what to fix.
 5. Go through the sections in order: ICP, Offer, Proof, Tone, Exclusions. One question per bullet, but skip any bullet already answered.
 6. Write the file. Show the finished `client.md` and ask: "Anything wrong or missing?"
-7. Tell them: "This file is now Claude's memory for this client. Next we can build a list with list-builder."
+7. Tell them: "This file is now Claude's memory for this client. Next, offer-builder can tighten the Offer section, then we can build a list with list-builder."
 8. Offer to save it to GitHub with connect-github (commit and push).

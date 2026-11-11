@@ -15,6 +15,7 @@ Copy this folder to `clients/<client-slug>/` and fill it in, or run the `new-cli
 - Job titles to reach (decision maker first):
 
 ## Offer
+Run the offer-builder skill after new-client to tighten this.
 - The main problem they solve:
 - The result a customer gets:
 - The offer for cold outreach (for example a free audit, a short call, a sample):

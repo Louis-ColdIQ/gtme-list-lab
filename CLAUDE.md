@@ -17,6 +17,8 @@ At the start of every session:
 
 At the end of every session, always run `/handoff` (the `handoff` skill). Do this even if the session was short.
 
+If the student asks how a cold outbound system works, or how Clay, Instantly, APIs, or Supabase fit together, read `context/outbound-system.md` and explain it in plain words. Do not skip ahead and build Level 3 or 4 unless they ask.
+
 `clients/_template/` is the blank template. `clients/example-co/` is a made up example to learn from. Never do real work in either.
 
 ## Where things go
@@ -29,6 +31,7 @@ clients/<client>/
   lists/        companies.csv and people.csv
   campaigns/    campaign briefs
   copy/         email copy
+  reports/      simple campaign reports
 ```
 
 Always save outputs inside the client folder. Never overwrite a file without asking. Add the date to file names, for example `lists/2026-11-11-companies.csv`.
@@ -40,14 +43,16 @@ Always save outputs inside the client folder. Never overwrite a file without ask
 | connect-github | install Git, sign in to GitHub, save work to GitHub |
 | find-skills | search GitHub for public Claude Code skills and add one (optional) |
 | new-client | interview the student and write `client.md` |
+| offer-builder | tighten the offer in `client.md` and give 3 one-line variants |
 | connect-clay | install and sign in to the Clay CLI (optional) |
 | list-builder | build a company list and a people list |
 | new-campaign | turn `client.md` plus a list into a campaign brief |
 | copywriter | write short cold emails from `client.md` and the brief |
+| campaign-report | write a simple report from a CSV or pasted campaign numbers |
 | connect-supabase | save lists into a free Supabase database (optional) |
 | handoff | write a session handoff so the next session can pick up |
 
-Usual order: connect-github, then optionally find-skills, then new-client, list-builder, new-campaign, copywriter, then `/handoff`. Use the matching skill whenever the student's request fits one.
+Usual order: connect-github, then optionally find-skills, then new-client, offer-builder, list-builder, new-campaign, copywriter, then `/handoff`. Use `/report` later, once they have numbers from a sending tool. Use the matching skill whenever the student's request fits one.
 
 ## Hard rules
 
