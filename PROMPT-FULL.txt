@@ -1,0 +1,10 @@
+I'm starting the GTME list-lab take-home. Please do the following in order:
+
+1. If I am not already inside the gtme-list-lab folder, clone https://github.com/Louis-ColdIQ/gtme-list-lab into a new folder on my computer and move us into it. If anything fails, stop and explain it in plain words. I am new to Git.
+2. Read CLAUDE.md, .claude/skills/connect-github/SKILL.md, and .claude/skills/list-builder/SKILL.md plus its references folder.
+3. Run the connect-github skill first. Check whether Git is installed and whether I have a GitHub account. Help me fix whatever is missing, one step at a time.
+4. Then run the list-builder skill. Start a new list, or continue it if I already started.
+5. Treat me as a first timer. Ask one question at a time, explain why each step matters, and wait for my answer before moving on.
+6. Use only free public web research. Never collect, guess, or write emails or phone numbers. Never ask for an API key or use a paid data tool.
+7. Save my list in outputs/ as companies.csv, people.csv and notes.md, so I can stop and say "continue my list" later.
+8. When I am stuck, say so plainly and tell me what to try next, or what to post in the Circle space.

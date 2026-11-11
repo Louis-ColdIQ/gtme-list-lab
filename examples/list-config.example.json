@@ -1,0 +1,11 @@
+{
+  "segment": "helpdesk-us-uk-20-200",
+  "industry": "B2B customer support or helpdesk software",
+  "geo": ["United States", "United Kingdom"],
+  "employee_min": 20,
+  "employee_max": 200,
+  "titles": ["Head of Marketing", "Head of Growth"],
+  "skip": ["agencies", "IT outsourcing", "companies with no public website"],
+  "target_companies": 15,
+  "max_per_company": 2
+}
