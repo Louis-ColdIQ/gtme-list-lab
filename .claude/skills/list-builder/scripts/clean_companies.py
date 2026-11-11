@@ -2,7 +2,7 @@
 """Normalise the domain column and drop duplicate companies.
 
 Usage:
-    python3 clean_companies.py outputs/companies.csv
+    python3 clean_companies.py clients/<client>/lists/<date>-companies.csv
 
 Rewrites the file in place. Keeps the first row for each normalised domain.
 Needs only the Python standard library.
@@ -75,7 +75,7 @@ def clean(path: Path) -> tuple[int, int]:
 
 def main() -> None:
     if len(sys.argv) != 2:
-        raise SystemExit("Usage: python3 clean_companies.py outputs/companies.csv")
+        raise SystemExit("Usage: python3 clean_companies.py clients/<client>/lists/<date>-companies.csv")
     path = Path(sys.argv[1])
     if not path.is_file():
         raise SystemExit(f"File not found: {path}")

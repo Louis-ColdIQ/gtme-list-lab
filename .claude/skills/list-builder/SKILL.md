@@ -1,120 +1,62 @@
 ---
 name: list-builder
 description: >
-  Walk a beginner through building a small prospect list (about 15 companies)
-  using only free public web research. No API keys, no emails, no phone numbers.
-  Use when someone says "build a list", "start the list builder", "continue my
-  list", "who should we email", or after the connect-github skill in the
-  GTME list-lab take-home.
+  Build a small company list and people list for a client, using the Clay CLI if
+  it is connected, otherwise free public web research. Use when the student says
+  "build a list", "find companies", "find prospects", "pull a list from Clay",
+  or after new-client.
 ---
 
-# List Builder (cohort lab)
+# List builder
 
-You are coaching a beginner. Together you will build a short, clean list of companies and target titles. The list is the bigger lever than the words, so the work today is choosing well, not finding emails.
-
-Read `references/csv-schema.md` and `references/research.md` before you start searching.
+A good list comes from good context. This skill reads the client's ICP and turns it into a list of companies and the right people at them.
 
 ## Rules
 
-1. Ask one question at a time. Wait for the answer.
-2. Plain English. If you use a term (ICP, domain, dedupe, tier), explain it in one short line the first time.
-3. No em dashes or en dashes in anything you write.
-4. Never collect, guess, generate or write emails or phone numbers. If a page shows an email, leave it out.
-5. Never ask for an API key. Never use Apollo, Prospeo, Lima, Clay credits, ColdIQ, Hunter, ZoomInfo, or any other paid data tool.
-6. Use only free public web research, as described in `references/research.md`.
-7. Dedupe companies by normalised domain (no protocol, no `www.`, no path, lowercase). Never dedupe by company name.
-8. Cap at 2 people or titles per company.
-9. Do not invent companies, people, employee counts or LinkedIn URLs. If you cannot find a field, leave it blank and say so.
-10. Ask before running a command or visiting a set of sites. Save as you go in `outputs/`.
+1. Read `clients/<client>/client.md` first. If it is missing, run new-client.
+2. One question at a time. Ask before every command.
+3. Start small: 10 to 20 companies, at most 2 people per company.
+4. Never guess, invent, or pattern match emails or phone numbers. The CSVs have no email or phone columns. If the student wants emails, they enrich in their own Clay account.
+5. Respect the Exclusions in client.md.
+6. No em dashes or en dashes.
 
-## Step 1: Resume or start
+## Step 1: Confirm the list
 
-If `outputs/list-config.json` or `outputs/companies.csv` already exists, say "Welcome back", show how many companies are already saved, and ask whether to continue or start over. If they continue, skip to the first incomplete step.
+From client.md, write back a short list plan and ask "Does this look right?":
 
-Otherwise start fresh.
+- Industry, size, countries
+- Fit signals to look for
+- Job titles (decision maker first)
+- What to skip
+- How many companies (default 15)
 
-## Step 2: Choose the ICP
+## Step 2: Pick the path
 
-ICP means the kind of company and person this list is for. Keep it tight.
+Run `clay whoami`. If it shows a workspace, use the Clay path. If not, ask: "Do you want to connect Clay first (connect-clay skill) or use free web research?"
 
-Ask, one at a time, unless they say "use the default":
+## Step 3a: Clay path
 
-1. What industry or product category? (For example: helpdesk software, not "SaaS".)
-2. Which country or countries?
-3. Company size, as a people range? (For example: 20 to 200.)
-4. Which 2 or 3 job titles should we look for?
-5. Who should we skip? (For example: agencies, tools with no public website.)
+1. Run `clay searches query-mode reference` and read the grammar before writing a query.
+2. Turn the plan into a company query, for example:
+   `clay searches query-mode create --query 'select from companies where industry = "Software Development"'`
+   Show the query to the student and ask before running it.
+3. Run `clay searches query-mode run <searchId>` to get results (JSON). Keep it to one page at first. Free plans get about 50 results per search.
+4. Do the same for people at those companies with the job titles from client.md (`select from people ...`).
+5. Map the results into the CSV schema below. Set `source` to `clay search`.
 
-Default ICP, if they want it:
+## Step 3b: Free web path
 
-- Industry: B2B customer support or helpdesk software
-- Geo: United States or United Kingdom
-- Size: 20 to 200 people
-- Titles: Head of Marketing, Head of Growth
-- Skip: agencies, IT outsourcing, companies with no public website
+1. Search the web for companies that match (directories, "alternatives to" pages, news, association member lists). See `references/research.md`.
+2. Check each company's own website. Only keep ones that clearly fit. Write one sentence on why.
+3. For people, look at the company's team or about page. If no name is public, add a row with only the target title and `source` = `target title only`.
 
-Repeat the ICP back in three or four lines and wait for a yes. Then write `outputs/list-config.json` using `examples/list-config.example.json` as the shape. Set `target_companies` to 15 and `max_per_company` to 2.
+## Step 4: Score and save
 
-## Step 3: Find 15 companies
+- Score each company 3 (strong fit), 2 (possible), 1 (weak). Drop the 1s unless the list is tiny.
+- Save to `clients/<client>/lists/<date>-companies.csv` and `<date>-people.csv` using `references/csv-schema.md`.
+- Clean the company file: `python3 .claude/skills/list-builder/scripts/clean_companies.py clients/<client>/lists/<date>-companies.csv`
+- Show a short summary: how many companies, how many people, the top 5 and why.
 
-Search in public sources only (see `references/research.md`). Work in small batches of 5 companies, then show the batch and ask "do these look right?" before adding the next 5.
+## Step 5: Next
 
-For each company, collect:
-
-- `company_name`
-- `domain` (normalised)
-- `linkedin_url` if you find a public company page, otherwise blank
-- `industry`
-- `employee_count` only if a public page, LinkedIn company page, or news article states it. Otherwise blank. Never invent a number.
-- `location` and `country`
-- `source` (the page you used)
-- `why_they_fit` (one short sentence)
-- `score`: 3 strong fit, 2 possible, 1 weak
-- `tier`: `fit`, `possible`, or `weak`
-- `list_date` (today, YYYY-MM-DD)
-
-Drop score 1 companies if you already have enough score 2 and 3. Aim for 15 companies that are mostly score 3.
-
-After each batch, normalise domains and drop duplicates. You may run:
-
-```bash
-python3 .claude/skills/list-builder/scripts/clean_companies.py outputs/companies.csv
-```
-
-It rewrites the file in place, normalises the `domain` column, and drops later duplicates. Show the student what changed, in one or two lines.
-
-## Step 4: Add 1 or 2 titles per company
-
-For each company, look at a public team, about, or leadership page if one exists.
-
-- If you find a real person whose title matches the ICP, add their first name, last name, title, and the page as `source`.
-- If you cannot find a named person, still add a row with the target title, and leave the name columns blank. Set `source` to `target title only`.
-- At most 2 rows per company.
-- Never add an email or phone number.
-
-Save as you go to `outputs/people.csv`.
-
-## Step 5: Clean and preview
-
-1. Run `clean_companies.py` one last time.
-2. Check that no people row is missing a `company_domain`, and that every domain exists in the company file.
-3. Show a short preview: 5 company rows and the title counts (how many companies have 2 titles, 1 title, or 0).
-4. Ask the student to pick 3 companies and quickly check the website themselves. Fix anything they flag.
-
-## Step 6: Notes and done
-
-Write `outputs/notes.md` with three short headings, filled from the session:
-
-- ICP we used
-- Where the companies came from (the kinds of pages, not a long URL dump)
-- Anything we skipped or could not find
-
-Tell them the three files to submit:
-
-- `outputs/companies.csv`
-- `outputs/people.csv`
-- `outputs/notes.md`
-
-Remind them to upload the files to the Circle space, in the session thread, unless their instructor named a different place.
-
-They can say "continue my list" later if they want to swap a company or add a missing title.
+Say: "Next we can turn this list into a campaign with new-campaign." Offer to save to GitHub, and if they set up Supabase, offer connect-supabase to load the CSVs.

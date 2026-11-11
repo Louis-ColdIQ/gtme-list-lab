@@ -4,7 +4,7 @@ description: >
   Help a beginner install Git, create or sign in to a free GitHub account, and
   get this project folder onto their computer. Use when the student says
   "set up GitHub", "connect GitHub", "clone the repo", "I don't have git",
-  "start my take-home", or at the beginning of the list-lab exercise.
+  "start my take-home", or at the start of the client HQ exercise.
 ---
 
 # Connect GitHub

@@ -1,3 +1,5 @@
+# Free web research (used when Clay is not connected)
+
 # How to research (free, public sources only)
 
 This lab uses pages anyone can open in a browser. No logins to paid data tools, no API keys, no scraping behind a login wall.
@@ -33,10 +35,10 @@ Prefer a public team, about, or leadership page on the company website. Take 1 o
 
 If no public team page exists, do not hunt through logged-in LinkedIn, and do not guess names from old articles unless you can confirm they still work there. Write the target title with the name left blank.
 
-## Never do this
+## Never do this (free web path)
 
 - Collect, guess, or write emails or phone numbers, even if they are on the website
-- Use Apollo, Prospeo, Lima, Clay, ColdIQ, Hunter, ZoomInfo, Sales Navigator, or similar
+- Use paid data tools here. If the student wants Clay, switch to the Clay path in SKILL.md (their own account)
 - Invent companies or people to pad the list
 - Copy a pre-made list from a random "top 100" article without opening each company website
 - Deduplicate by company name (Acme Inc and Acme Limited can be different firms; acme.com is the key)
